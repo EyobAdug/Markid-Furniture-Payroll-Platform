@@ -1,0 +1,23 @@
+# Render "Blueprint": New + -> Blueprint -> pick this repo. Needs a plan that includes a persistent disk.
+services:
+  - type: web
+    name: markid-payroll
+    runtime: docker
+    plan: starter
+    disk:
+      name: markid-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: MARKID_MODE
+        value: server
+      - key: MARKID_DB
+        value: /data/markid.db
+      - key: MARKID_HTTPS
+        value: "1"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: SYNC_TOKEN
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        sync: false

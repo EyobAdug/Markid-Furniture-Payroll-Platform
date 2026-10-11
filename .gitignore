@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.db
+*.db-journal
+*.sync
+*.incoming
+build/
+dist/
+backups/
+.DS_Store
